@@ -94,37 +94,3 @@ $offset: min(4.5vw, 42px);
     font-weight: 400;
   }
 }
-
-
-.footer {
-  $padding: 15px;
-  padding-bottom: $padding;
-
-  width: 100%;
-
-  font-size: 1.25rem;
-  font-weight: 400;
-
-  background-color: lightblue;
-
-  #footer-top {
-    height: $padding;
-    width: 100%;
-  }
-
-  #footer-content {
-    
-    .socials {
-      display: flex;
-      align-items: center;
-      
-      .socials-list {
-        display: flex;
-
-        list-style: none; //remove bullet points
-  
-        margin-left: 1.5rem;
-      }
-    }
-  }
-}

@@ -48,6 +48,12 @@ module.exports = {
       $: 'jquery',
       jQuery: 'jquery',
     }),
+
+    new CopyWebpackPlugin({
+      patterns:[
+        {from: 'src/partials/footer.html', to: 'footer.html'}
+      ],
+    })
   ],
 
   // Module rules

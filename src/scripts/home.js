@@ -1,3 +1,5 @@
+import { Footer } from './footer';
+
 import '../styles/home.scss';
 
 function loadCoverPhoto() {
@@ -9,3 +11,6 @@ function loadCoverPhoto() {
 }
 
 loadCoverPhoto();
+
+const footer = new Footer();
+footer.load();
