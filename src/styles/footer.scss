@@ -2,6 +2,7 @@
 
 .footer {
   display: flex;
+  justify-content: center;
 
   $padding: 15px;
   padding-top: $padding;
@@ -14,9 +15,7 @@
   background-color: constants.$grey-back;
 
   //thin screen
-  @media screen and (max-width: 600px) {
-    justify-content: center;
-
+  @media screen and (max-width: 800px) {
     #footer-content {
       flex-direction: column;
 
@@ -26,11 +25,10 @@
     }
   }
   // wide screen
-  @media screen and (min-width: 601px) {
-    padding: $padding 0 $padding 10vw;
-
+  @media screen and (min-width: 801px) {
     #footer-content {
       flex-direction: row;
+      width: 800px;
 
       .footer-info {
         margin-left: 60px;
@@ -40,6 +38,7 @@
 
   #footer-content {
     display: flex;
+    margin: 0 5vw 0 5vw;
 
     .footer-photo-wrapper {
       width: 242.7px;

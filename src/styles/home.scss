@@ -39,61 +39,119 @@ $offset: min(4.5vw, 42px);
       object-fit: cover;
       object-position: 50% 10%;
     }
-  
-    .nav-bar {
-      position: absolute;
-      bottom: 0;
-  
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-    
-      .nav-bar-box {
+
+    //wide screen
+    @media screen and (min-width: 500px) {
+      .nav-bar {
         position: absolute;
-  
+        bottom: 0;
+    
         display: flex;
-        align-items: center;
         justify-content: center;
-        column-gap: 5vw; 
+        align-items: center;
+        width: 100%;
   
-        $top-bottom-padding: min(1vw, 10px);
-        $right-left-padding: min(2.5vw, 25px);
-        padding: $top-bottom-padding $right-left-padding;
-  
-        list-style: none; //remove bullet points
+        #hamburger-menu-button {
+          display: none;
+        }
+      
+        .nav-bar-box {
+          position: absolute;
     
-        border-width: 1px;
-        border-radius: 50px;
-        border-style: solid;
-        border-color: rgb(120, 120, 120);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          column-gap: 5vw; 
     
-        background-color: white;
-  
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+          $top-bottom-padding: min(1vw, 10px);
+          $right-left-padding: min(2.5vw, 25px);
+          padding: $top-bottom-padding $right-left-padding;
     
-        z-index: 10;
-  
-        font-size: min(max(1rem, 1.35vw), 1.7rem);
-  
-        li {
-          cursor: pointer;
-  
-          &:hover {
-            text-decoration: underline;
+          list-style: none; //remove bullet points
+      
+          border-width: 1px;
+          border-radius: 50px;
+          border-style: solid;
+          border-color: rgb(120, 120, 120);
+      
+          background-color: white;
+    
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      
+          z-index: 10;
+    
+          font-size: min(max(1rem, 1.35vw), 1.7rem);
+    
+          li {
+            cursor: pointer;
+    
+            &:hover {
+              text-decoration: underline;
+            }
           }
+        }
+      }
+    }
+    //thin screen
+    @media screen and (max-width: 499px) {
+      .nav-bar {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+
+        #hamburger-menu-button {
+          height: 50px;
+          width: 50px;
+
+          border-style: none;
+          $border-radius: 25%;
+          border-radius: $border-radius;
+
+          background-color: rgba(0, 0, 0, 0);
+
+          #hamburger-menu-icon {
+            height: 100%;
+            width: 100%;
+            border-radius: $border-radius;
+          }
+        }
+
+        .nav-bar-box {
+          display: none;
         }
       }
     }
   }
   
-  .body-text {
-    margin: min(5vw, 40px) $offset 25px $offset;
-  
-    font-size: min(max(1rem, 1.35vw), 1.7rem);
-    line-height: min(max(1.4rem, 2.025vw), 2.38rem);
-    font-weight: 400;
+  #body-text-wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 
-    max-width: 80rem;
+    width: 100%;
+
+    #body-text {
+      font-size: min(max(1rem, 1.35vw), 1.7rem);
+      margin: 0 5vw 0 5vw;
+
+      p {    
+        max-width: 50rem;
+
+        margin-top: 0.4rem;
+      }
+
+      h3 {
+        margin: 3rem 0 1rem 0;
+        
+      }
+
+      .top-p {
+        margin-top: min(5vw, 40px);
+      }
+      
+      .bottom-p {
+        margin-bottom: min(5vw, 40px);
+      }
+    }
   }
 }
