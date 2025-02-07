@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 /*colors*/
 $grey-back: rgb(101, 101, 101);
 
@@ -7,8 +6,11 @@ $bluesky-bg: rgb(17, 133, 254);
 $linkedin-bg: rgb(0, 126, 187);
 
 /*fonts*/
-@mixin montserrat() {
-  font-family: "montserrat", sans-serif;
+@mixin open-sans {
+  font-family: "Open Sans", serif;
   font-optical-sizing: auto;
+  font-weight: 400;
   font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
 }

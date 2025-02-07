@@ -15,10 +15,12 @@ export class Footer {
   async load() {
     const $footer = document.createElement('footer');
     $footer.classList.add('footer');
+    $footer.classList.add('behind-main-shadow');
     document.getElementById('page-container').appendChild($footer);
 
     $('.footer').load('footer.html', () => {
       this._loadSocials();
+      this._loadFooterImage();
     });
     }
 
@@ -43,5 +45,13 @@ export class Footer {
 
       $('.socials-list').append($listItem);
     }
+  }
+
+  _loadFooterImage() {
+    const $img = document.createElement('img');
+    $img.src = 'assets/images/footer-photo.jpg';
+
+    console.log($img);
+    $('.footer-photo-wrapper').append($img);
   }
 }

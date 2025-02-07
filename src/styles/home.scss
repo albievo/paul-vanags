@@ -4,6 +4,7 @@
 $offset: min(4.5vw, 42px);
 
 #content {
+
   #cover-photo-container {
     position: relative;
     width: 100%;
@@ -87,10 +88,12 @@ $offset: min(4.5vw, 42px);
   }
   
   .body-text {
-    margin: min(5vw, 40px) $offset 0 $offset;
+    margin: min(5vw, 40px) $offset 25px $offset;
   
     font-size: min(max(1rem, 1.35vw), 1.7rem);
     line-height: min(max(1.4rem, 2.025vw), 2.38rem);
     font-weight: 400;
+
+    max-width: 80rem;
   }
 }

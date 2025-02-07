@@ -4,8 +4,9 @@ import '../styles/home.scss';
 
 function loadCoverPhoto() {
   const coverPhoto = document.createElement('img');
-  coverPhoto.src = 'assets/images/cover-photo.webp';
+  coverPhoto.src = 'assets/images/cover-photo.jpg';
   coverPhoto.id = 'cover-photo'
+  coverPhoto.classList.add('behind-main-shadow');
 
   $('#cover-photo-container').append(coverPhoto);
 }
