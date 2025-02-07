@@ -17,6 +17,31 @@ export class Footer {
     $footer.classList.add('footer');
     document.getElementById('page-container').appendChild($footer);
 
-    await $('.footer').load('footer.html');
+    $('.footer').load('footer.html', () => {
+      this._loadSocials();
+    });
+    }
+
+  _loadSocials() {
+    for (let idx = 0; idx < this.socials.length; idx++) {
+      // create list element
+      const $listItem = document.createElement('li');
+      $listItem.classList.add(`${this.socials[idx].socialName}-li`);
+
+      // create anchor element and add it to li
+      const $link = document.createElement('a');
+      $link.href = this.socials[idx].socialLink;
+      $link.target = '_blank'
+      $link.classList.add(`${this.socials[idx].socialName}-link`);
+      $listItem.appendChild($link);
+
+      // create image element and add it to a
+      const $icon = document.createElement('img');
+      $icon.src = `assets/icons/${this.socials[idx].socialName}.png`;
+      $icon.classList.add(`${this.socials[idx].socialName}-img`);
+      $link.appendChild($icon);
+
+      $('.socials-list').append($listItem);
+    }
   }
 }

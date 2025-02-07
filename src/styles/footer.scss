@@ -1,3 +1,5 @@
+@use 'partials/constants';
+
 .footer {
   $padding: 15px;
   padding: $padding 0 $padding 0;
@@ -6,8 +8,9 @@
 
   font-size: 1.25rem;
   font-weight: 400;
+  color: white;
 
-  background-color: lightblue;
+  background-color: constants.$grey-back;
 
   #footer-top {
     height: $padding;
@@ -15,17 +18,61 @@
   }
 
   #footer-content {
-    
+    margin-left: 5vw;
+
     .socials {
       display: flex;
       align-items: center;
+
+      font-size: 1.5rem;
       
       .socials-list {
         display: flex;
+        align-items: center;
 
         list-style: none; //remove bullet points
   
         margin-left: 1.5rem;
+        column-gap: 1rem;
+        
+        $item-height: 2.5rem;
+
+        li {
+          height: $item-height;
+
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            height: $item-height;
+            width: $item-height;
+
+            border-radius: 50%;
+
+            transition: background-color 300ms;
+
+            img {
+              height: $item-height;
+
+              border-radius: 50%;
+            }
+
+            .linkedin-img,
+            .bluesky-img {
+              height: calc($item-height / 1.25);
+
+              border-radius: 0;
+            }
+          }
+
+          .bluesky-link:hover {
+            background-color: constants.$bluesky-bg;
+          }
+          .linkedin-link:hover {
+            background-color: constants.$linkedin-bg;
+          }
+        }
       }
     }
   }
