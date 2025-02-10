@@ -11,7 +11,16 @@ function loadCoverPhoto() {
   $('#cover-photo-container').append(coverPhoto);
 }
 
+function loadProfilePic() {
+  const $profilePic = document.createElement('img');
+  $profilePic.src = 'assets/images/profile-pic.jpg';
+  $profilePic.id = 'profile-pic';
+
+  $('#profile-pic-container').append($profilePic);
+}
+
 loadCoverPhoto();
+loadProfilePic();
 
 const footer = new Footer([
   {

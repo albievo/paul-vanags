@@ -9,7 +9,7 @@ $offset: min(4.5vw, 42px);
     position: relative;
     width: 100%;
   
-    $max-height: 75vh;
+    $max-height: 50vh;
   
     max-height: $max-height;
   
@@ -37,7 +37,7 @@ $offset: min(4.5vw, 42px);
       max-height: $max-height;
   
       object-fit: cover;
-      object-position: 50% 10%;
+      object-position: 50% 75%;
     }
 
     //wide screen
@@ -123,16 +123,38 @@ $offset: min(4.5vw, 42px);
     }
   }
   
-  #body-text-wrapper {
+  #body-text-section {
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    flex-direction: row;
 
     width: 100%;
 
+    margin-top: min(5vw, 40px);
+    margin-bottom: min(5vw, 40px);
+
+    $item-margin: 5vw;
+
+    column-gap: 50px;
+
+    #profile-pic-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      margin-left: $item-margin;
+
+      #profile-pic {        
+        height: 300px;
+        width: 250px;
+        object-fit: cover;
+        object-position: 55% 50%;
+      }
+    }
+
     #body-text {
       font-size: min(max(1rem, 1.35vw), 1.7rem);
-      margin: 0 5vw 0 5vw;
+      margin-right: $item-margin;
 
       p {    
         max-width: 50rem;
@@ -142,15 +164,6 @@ $offset: min(4.5vw, 42px);
 
       h3 {
         margin: 3rem 0 1rem 0;
-        
-      }
-
-      .top-p {
-        margin-top: min(5vw, 40px);
-      }
-      
-      .bottom-p {
-        margin-bottom: min(5vw, 40px);
       }
     }
   }
