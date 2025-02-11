@@ -19,8 +19,30 @@ function loadProfilePic() {
   $('#profile-pic-container').append($profilePic);
 }
 
+function addListeners() {
+  addNavBarListeners();
+  addHamburgerListener();
+}
+
+function addNavBarListeners() {
+  console.log('implement nav bar listeners');
+}
+
+function addHamburgerListener() {
+  let menuDisplayed = false;
+
+  $('#hamburger-menu-button').on('click', () => {
+    if (!menuDisplayed) {
+      $('#full-page-menu').attr('hidden', false);
+      $('#content').hide()
+      menuDisplayed = true;
+    }
+  })
+}
+
 loadCoverPhoto();
 loadProfilePic();
+addListeners();
 
 const footer = new Footer([
   {

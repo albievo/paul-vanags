@@ -4,16 +4,116 @@
 
 $offset: min(4.5vw, 42px);
 
+  //wide screen
+  @media screen and (min-width: 44em) {
+    .nav-bar {
+      position: absolute;
+      top: 2.5rem;
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+
+      #hamburger-menu-button {
+        display: none;
+      }
+    
+      .nav-bar-box {
+        position: fixed;
+  
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 40px; 
+  
+        $top-bottom-padding: 10px;
+        $right-left-padding: 25px;
+        padding: $top-bottom-padding $right-left-padding;
+  
+        list-style: none; //remove bullet points
+    
+        border-radius: 50px;
+        // border-width: 1px;
+        // border-style: solid;
+        // border-color: rgb(120, 120, 120);
+    
+        background-color: white;
+  
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    
+        z-index: 10;
+  
+        font-size: 1.25rem;
+  
+        li {
+          cursor: pointer;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  //thin screen
+  @media screen and (max-width: 43.9em) {
+    .nav-bar {
+      #hamburger-menu-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;  
+
+        height: 50px;
+        width: 50px;
+
+        border-style: none;
+        $border-radius: 25%;
+        border-radius: $border-radius;
+
+        background-color: rgba(0, 0, 0, 0);
+
+        z-index: 20;
+
+        #hamburger-menu-icon {
+          height: 100%;
+          width: 100%;
+          border-radius: $border-radius;
+
+          cursor: pointer;
+        }
+      }
+
+      .nav-bar-box {
+        display: none;
+      }
+
+      #full-page-menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        background-color: white;
+
+        z-index: 100;
+      }
+    }
+  }
+
 #content {
 
   #cover-photo-container {
     position: relative;
-    width: 100%;
+    height: max(67vw);
   
-    $max-height: max(75vh, 11rem);
+    $max-height: 75vh;
+    $min-height: 20rem;
   
     max-height: $max-height;
-  
+    min-height: $min-height;
+      
     #cover-photo-name-container {
       position: absolute;
       top: 0;
@@ -22,18 +122,19 @@ $offset: min(4.5vw, 42px);
       left: 0;
 
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
   
       font-size: 2.75rem;
       font-weight: 700;
       color: white;
-      @include constants.noto-serif();
+      text-align: center;
 
       padding: 0 15px 0 15px;
 
-      #cover-photo-name {
-        text-align: center;
+      .description {
+        font-size: 1.25rem;
       }
     }
   
@@ -44,91 +145,10 @@ $offset: min(4.5vw, 42px);
       height: 100%;
   
       max-height: $max-height;
+      min-height: $min-height;
   
       object-fit: cover;
       object-position: 50% 100%;
-    }
-
-    //wide screen
-    @media screen and (min-width: 44em) {
-      .nav-bar {
-        position: absolute;
-        top: 2.5rem;
-    
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-  
-        #hamburger-menu-button {
-          display: none;
-        }
-      
-        .nav-bar-box {
-          position: fixed;
-    
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          column-gap: 40px; 
-    
-          $top-bottom-padding: 10px;
-          $right-left-padding: 25px;
-          padding: $top-bottom-padding $right-left-padding;
-    
-          list-style: none; //remove bullet points
-      
-          border-radius: 50px;
-          // border-width: 1px;
-          // border-style: solid;
-          // border-color: rgb(120, 120, 120);
-      
-          background-color: white;
-    
-          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-      
-          z-index: 10;
-    
-          font-size: 1.25rem;
-    
-          li {
-            cursor: pointer;
-    
-            &:hover {
-              text-decoration: underline;
-            }
-          }
-        }
-      }
-    }
-    //thin screen
-    @media screen and (max-width: 43.9em) {
-      .nav-bar {
-        position: absolute;
-        top: 10px;
-        right: 10px;
-
-        #hamburger-menu-button {
-          height: 50px;
-          width: 50px;
-
-          border-style: none;
-          $border-radius: 25%;
-          border-radius: $border-radius;
-
-          background-color: rgba(0, 0, 0, 0);
-
-          #hamburger-menu-icon {
-            height: 100%;
-            width: 100%;
-            border-radius: $border-radius;
-          }
-        }
-
-        .nav-bar-box {
-          display: none;
-        }
-      }
     }
   }
   

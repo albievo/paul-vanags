@@ -51,7 +51,6 @@ export class Footer {
     const $img = document.createElement('img');
     $img.src = 'assets/images/footer-photo.jpg';
 
-    console.log($img);
     $('.footer-photo-wrapper').append($img);
   }
 }
