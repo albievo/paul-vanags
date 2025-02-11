@@ -1,5 +1,6 @@
 @use './partials/reset';
 @use './general.scss';
+@use './partials/constants';
 
 $offset: min(4.5vw, 42px);
 
@@ -9,22 +10,30 @@ $offset: min(4.5vw, 42px);
     position: relative;
     width: 100%;
   
-    $max-height: 50vh;
+    $max-height: max(75vh, 11rem);
   
     max-height: $max-height;
   
-    #cover-photo-name {
+    #cover-photo-name-container {
       position: absolute;
-      bottom: $offset;
-      left: $offset;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
   
-      font-size: min(7.5vw, 70px);
+      font-size: 2.75rem;
       font-weight: 700;
       color: white;
-  
-      .first-name,
-      .last-name {
-        display: block;
+      @include constants.noto-serif();
+
+      padding: 0 15px 0 15px;
+
+      #cover-photo-name {
+        text-align: center;
       }
     }
   
@@ -37,14 +46,14 @@ $offset: min(4.5vw, 42px);
       max-height: $max-height;
   
       object-fit: cover;
-      object-position: 50% 75%;
+      object-position: 50% 100%;
     }
 
     //wide screen
-    @media screen and (min-width: 500px) {
+    @media screen and (min-width: 44em) {
       .nav-bar {
         position: absolute;
-        bottom: 0;
+        top: 2.5rem;
     
         display: flex;
         justify-content: center;
@@ -56,23 +65,23 @@ $offset: min(4.5vw, 42px);
         }
       
         .nav-bar-box {
-          position: absolute;
+          position: fixed;
     
           display: flex;
           align-items: center;
           justify-content: center;
-          column-gap: 5vw; 
+          column-gap: 40px; 
     
-          $top-bottom-padding: min(1vw, 10px);
-          $right-left-padding: min(2.5vw, 25px);
+          $top-bottom-padding: 10px;
+          $right-left-padding: 25px;
           padding: $top-bottom-padding $right-left-padding;
     
           list-style: none; //remove bullet points
       
-          border-width: 1px;
           border-radius: 50px;
-          border-style: solid;
-          border-color: rgb(120, 120, 120);
+          // border-width: 1px;
+          // border-style: solid;
+          // border-color: rgb(120, 120, 120);
       
           background-color: white;
     
@@ -80,7 +89,7 @@ $offset: min(4.5vw, 42px);
       
           z-index: 10;
     
-          font-size: min(max(1rem, 1.35vw), 1.7rem);
+          font-size: 1.25rem;
     
           li {
             cursor: pointer;
@@ -93,7 +102,7 @@ $offset: min(4.5vw, 42px);
       }
     }
     //thin screen
-    @media screen and (max-width: 499px) {
+    @media screen and (max-width: 43.9em) {
       .nav-bar {
         position: absolute;
         top: 10px;
@@ -125,36 +134,57 @@ $offset: min(4.5vw, 42px);
   
   #body-text-section {
     display: flex;
-    justify-content: center;
-    flex-direction: row;
 
     width: 100%;
 
-    margin-top: min(5vw, 40px);
-    margin-bottom: min(5vw, 40px);
-
     $item-margin: 5vw;
 
-    column-gap: 50px;
+    @media screen and (min-width: 650px) {
+      flex-direction: row;
+      justify-content: center;
+
+      margin-top: min(5vw, 40px);
+      margin-bottom: min(5vw, 40px);
+    
+      column-gap: 50px;
+
+      #profile-pic-container {
+        margin-left: $item-margin;
+      }
+  
+      #body-text {
+        margin-right: $item-margin;
+      }
+    }
+
+    @media screen and (max-width: 649px) {
+      flex-direction: column;
+
+      #body-text {
+        $margin-left-right: 30px;
+        $margin-top-bottom: 20px;
+        margin: $margin-top-bottom $margin-left-right $margin-top-bottom $margin-left-right;
+      }
+
+      #profile-pic-container {
+        margin-top: 40px;
+      }
+    }
 
     #profile-pic-container {
       display: flex;
-      align-items: center;
       justify-content: center;
 
-      margin-left: $item-margin;
-
       #profile-pic {        
-        height: 300px;
-        width: 250px;
+        height: 230px;
+        width: 175px;
         object-fit: cover;
         object-position: 55% 50%;
       }
     }
 
     #body-text {
-      font-size: min(max(1rem, 1.35vw), 1.7rem);
-      margin-right: $item-margin;
+      font-size: 1.25rem;
 
       p {    
         max-width: 50rem;
