@@ -11,12 +11,19 @@ function loadCoverPhoto() {
   $('#cover-photo-container').append(coverPhoto);
 }
 
-function loadProfilePic() {
-  const $profilePic = document.createElement('img');
-  $profilePic.src = 'assets/images/profile-pic.jpg';
-  $profilePic.id = 'profile-pic';
+function loadProfilePics() {
+  const $profilePicCover = document.createElement('img');
+  const $profilePicBody = document.createElement('img');
 
-  $('#profile-pic-container').append($profilePic);
+  $profilePicCover.src = 'assets/images/profile-pic.jpg';
+  $profilePicBody.src = 'assets/images/profile-pic.jpg';
+
+
+  $profilePicCover.id = 'profile-pic-cover';
+  $('#profile-pic-cover-container').append($profilePicCover);
+
+  $profilePicBody.id = 'profile-pic-body';
+  $('#profile-pic-body-container').append($profilePicBody);
 }
 
 function addListeners() {
@@ -41,7 +48,7 @@ function addHamburgerListener() {
 }
 
 loadCoverPhoto();
-loadProfilePic();
+loadProfilePics();
 addListeners();
 
 const footer = new Footer([

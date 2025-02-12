@@ -4,117 +4,120 @@
 
 $offset: min(4.5vw, 42px);
 
-  //wide screen
-  @media screen and (min-width: 44em) {
-    .nav-bar {
-      position: absolute;
-      top: 2.5rem;
-  
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+// nav bar stuff
+//wide screen
+@media screen and (min-width: 44em) {
+  .nav-bar {
+    position: absolute;
+    top: 2.5rem;
 
-      #hamburger-menu-button {
-        display: none;
-      }
-    
-      .nav-bar-box {
-        position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+
+    #hamburger-menu-button {
+      display: none;
+    }
   
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        column-gap: 40px; 
+    .nav-bar-box {
+      position: fixed;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      column-gap: 40px; 
+
+      $top-bottom-padding: 10px;
+      $right-left-padding: 25px;
+      padding: $top-bottom-padding $right-left-padding;
+
+      list-style: none; //remove bullet points
   
-        $top-bottom-padding: 10px;
-        $right-left-padding: 25px;
-        padding: $top-bottom-padding $right-left-padding;
+      border-radius: 50px;
+      // border-width: 1px;
+      // border-style: solid;
+      // border-color: rgb(120, 120, 120);
   
-        list-style: none; //remove bullet points
-    
-        border-radius: 50px;
-        // border-width: 1px;
-        // border-style: solid;
-        // border-color: rgb(120, 120, 120);
-    
-        background-color: white;
+      background-color: white;
+
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    
-        z-index: 10;
-  
-        font-size: 1.25rem;
-  
-        li {
-          cursor: pointer;
-  
-          &:hover {
-            text-decoration: underline;
-          }
+      z-index: 10;
+
+      font-size: 1.25rem;
+
+      li {
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
         }
       }
     }
   }
-  //thin screen
-  @media screen and (max-width: 43.9em) {
-    .nav-bar {
-      #hamburger-menu-button {
-        position: absolute;
-        top: 10px;
-        right: 10px;  
+}
+//thin screen
+@media screen and (max-width: 43.9em) {
+  .nav-bar {
+    #hamburger-menu-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;  
 
-        height: 50px;
-        width: 50px;
+      height: 50px;
+      width: 50px;
 
-        border-style: none;
-        $border-radius: 25%;
+      border-style: none;
+      $border-radius: 25%;
+      border-radius: $border-radius;
+
+      background-color: rgba(0, 0, 0, 0);
+
+      z-index: 20;
+
+      #hamburger-menu-icon {
+        height: 100%;
+        width: 100%;
         border-radius: $border-radius;
 
-        background-color: rgba(0, 0, 0, 0);
-
-        z-index: 20;
-
-        #hamburger-menu-icon {
-          height: 100%;
-          width: 100%;
-          border-radius: $border-radius;
-
-          cursor: pointer;
-        }
-      }
-
-      .nav-bar-box {
-        display: none;
-      }
-
-      #full-page-menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-
-        background-color: white;
-
-        z-index: 100;
+        cursor: pointer;
       }
     }
+
+    .nav-bar-box {
+      display: none;
+    }
+
+    #full-page-menu {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      background-color: white;
+
+      z-index: 100;
+    }
   }
+}
 
 #content {
+  $switch-wide-to-thin: 650px;
+  $switch-tall-to-short: 650px;
 
   #cover-photo-container {
     position: relative;
     height: max(67vw);
   
-    $max-height: 50vh;
+    $max-height: 60vh;
     $min-height: 20rem;
   
     max-height: $max-height;
     min-height: $min-height;
-      
-    #cover-photo-name-container {
+
+    #cover-photo-contents {
       position: absolute;
       top: 0;
       right: 0;
@@ -125,16 +128,51 @@ $offset: min(4.5vw, 42px);
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
+
+      @media screen and ((min-width: $switch-wide-to-thin) and (min-height: $switch-tall-to-short)) {
+        #profile-pic-cover-container {
+          $dimensions: min(30vh, 300px);
+          height: $dimensions;
+          width: $dimensions;
   
-      font-size: 2.75rem;
-      font-weight: 700;
-      color: white;
-      text-align: center;
+          overflow: hidden;
+  
+          border-radius: 50%;
+          border-style: solid;
+          border-color: white;
+          border-width: 5px;
+  
+          // box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  
+          #profile-pic-cover {
+            height: 100%;
+            width: 100%;
+  
+            transform: scale(2);
+            transform-origin: 62% 5%;
+  
+            object-fit: cover;
+          }
+        }
+      }
+      @media screen and ((max-width: calc($switch-wide-to-thin - 1px)) or (max-height: calc($switch-wide-to-thin - 1px))) {
+        #profile-pic-cover-container {
+          display: none;
+        }
+      }
 
-      padding: 0 15px 0 15px;
-
-      .description {
-        font-size: 1.25rem;
+      #cover-photo-name-container {
+        font-size: 2.75rem;
+        font-weight: 700;
+        color: white;
+        text-align: center;
+  
+        padding: 0 15px 0 15px;
+  
+        .description {
+          font-size: 1.25rem;
+        }
       }
     }
   
@@ -159,47 +197,66 @@ $offset: min(4.5vw, 42px);
 
     $item-margin: 5vw;
 
-    @media screen and (min-width: 650px) {
+    margin-top: min(5vw, 40px);
+    margin-bottom: min(5vw, 40px);
+
+    //big enough on both
+    @media screen and ((min-width: $switch-wide-to-thin) and (min-height: $switch-tall-to-short)) {
       flex-direction: row;
       justify-content: center;
-
-      margin-top: min(5vw, 40px);
-      margin-bottom: min(5vw, 40px);
     
-      column-gap: 50px;
-
-      #profile-pic-container {
-        margin-left: $item-margin;
+      #profile-pic-body-container {
+        display: none;
       }
   
+      #body-text {
+        margin: 0 $item-margin 0 $item-margin;
+      }
+    }
+    
+    // too short or too thin
+    @media screen and ((max-width: calc($switch-wide-to-thin - 1px)) or (max-height: calc($switch-wide-to-thin - 1px))) {
+      #profile-pic-body-container {
+        display: flex;
+        justify-content: center;
+
+        margin-top: 40px;
+  
+        #profile-pic-body {        
+          height: 230px;
+          width: 175px;
+          object-fit: cover;
+          object-position: 55% 50%;
+        }
+      }
+    }
+
+    //too short but not too thin
+    @media screen and ((not (max-width: calc($switch-wide-to-thin - 1px))) and (max-height: calc($switch-wide-to-thin - 1px))) {
+      flex-direction: row;
+      justify-content: center;
+      column-gap: 50px;
+
+      #profile-pic-body-container {
+        margin-left: $item-margin;
+      }
       #body-text {
         margin-right: $item-margin;
       }
     }
 
-    @media screen and (max-width: 649px) {
+    // too thin
+    @media screen and (max-width: calc($switch-wide-to-thin - 1px)) {
       flex-direction: column;
 
       #body-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
         $margin-left-right: 30px;
         $margin-top-bottom: 20px;
         margin: $margin-top-bottom $margin-left-right $margin-top-bottom $margin-left-right;
-      }
-
-      #profile-pic-container {
-        margin-top: 40px;
-      }
-    }
-
-    #profile-pic-container {
-      display: flex;
-      justify-content: center;
-
-      #profile-pic {        
-        height: 230px;
-        width: 175px;
-        object-fit: cover;
-        object-position: 55% 50%;
       }
     }
 
