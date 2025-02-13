@@ -9,36 +9,44 @@
 <body>
   <div id="page-container">
     <nav class="nav-bar">
-      <button id="hamburger-menu-button">
+      <button id="menu-button">
         <svg id="hamburger-menu-icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
           <path d="M4 18L20 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
           <path d="M4 12L20 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
           <path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
         </svg>
       </button>
-      <button id="close-nav-bar-displayed-button" hidden>
-        <svg id="close-icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none">
-          <path d="M6 6L18 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-          <path d="M6 18L18 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-      <ul class="nav-bar-box">
+      <ol class="nav-bar-box">
         <li>
-          <a>Research Interests</a>
+          <a class="link-secondary">Research Interests</a>
         </li>
         <li>
-          <a>Publications</a>
+          <a class="link-secondary">Publications</a>
         </li>
         <li>
-          <a>CV</a>
+          <a class="link-secondary">CV</a>
         </li>
         <li>
-          <a>Let's Talk!</a>
+          <a class="link-secondary">Let's Talk!</a>
         </li>
-      </ul>
-
-      <div id="full-page-menu" hidden>
-
+      </ol>
+      <div id="full-page-menu-container" hidden>
+        <div id="full-page-menu">
+          <ol id="full-page-menu-contents">
+            <li>
+              <a>Research Interests</a>
+            </li>
+            <li>
+              <a>Publications</a>
+            </li>
+            <li>
+              <a>CV</a>
+            </li>
+            <li>
+              <a>Let's Talk!</a>
+            </li>
+          </ol>
+        </div>
       </div>
     </nav>
 

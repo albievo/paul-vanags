@@ -1,5 +1,3 @@
-import { Footer } from './footer';
-
 import '../styles/home.scss';
 
 function loadCoverPhoto() {
@@ -38,27 +36,36 @@ function addNavBarListeners() {
 function addHamburgerListener() {
   let menuDisplayed = false;
 
-  $('#hamburger-menu-button').on('click', () => {
+  $('#menu-button').on('click', () => {
     if (!menuDisplayed) {
-      $('#full-page-menu').attr('hidden', false);
-      $('#content').hide()
+      openSideBar();
       menuDisplayed = true;
+    } else {
+      closeSideBar();
+      menuDisplayed = false;
     }
   })
+
+  $('#full-page-menu-container').on('click', () => {
+    closeSideBar();
+    menuDisplayed = false;
+  })
+}
+
+function openSideBar() {
+  $('#full-page-menu-container').attr('hidden', false);
+  $('#menu-button').html(
+    '<svg id="close-icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round"/><path d="M6 18L18 6" stroke="#000000" stroke-width="2" stroke-linecap="round"/></svg>'
+  )
+}
+
+function closeSideBar() {
+  $('#full-page-menu-container').attr('hidden', true);
+  $('#menu-button').html(
+    '<svg id="hamburger-menu-icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none"><path d="M4 18L20 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/><path d="M4 12L20 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/><path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg>'
+  )
 }
 
 loadCoverPhoto();
 loadProfilePics();
 addListeners();
-
-const footer = new Footer([
-  {
-    socialName: 'bluesky',
-    socialLink: 'http://@paulvanags.bsky.social'
-  },
-  {
-    socialName: 'linkedin',
-    socialLink: 'https://www.linkedin.com/in/paulvanags/'
-  }
-]);
-footer.load();

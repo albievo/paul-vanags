@@ -4,6 +4,55 @@
 
 $offset: min(4.5vw, 42px);
 
+.nav-bar {
+  #full-page-menu-container {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    z-index: 75;
+
+    #full-page-menu {
+      display: flex;
+      align-items: center;
+      
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: max(25vw, 40px);
+
+      background-color: white;
+  
+      #full-page-menu-contents {
+        display: flex;
+        flex-direction: column;
+
+
+        list-style: none;
+  
+        width: 100%;
+
+        font-size: 1.2rem;
+
+        li {
+          padding: 1.5rem 0 1.5rem 50px;
+
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgb(200, 200, 200);
+          }
+        }
+      }
+    }
+  }
+}
+
 // nav bar stuff
 //wide screen
 @media screen and (min-width: 44em) {
@@ -16,7 +65,7 @@ $offset: min(4.5vw, 42px);
     align-items: center;
     width: 100%;
 
-    #hamburger-menu-button {
+    #menu-button {
       display: none;
     }
   
@@ -46,27 +95,28 @@ $offset: min(4.5vw, 42px);
       z-index: 10;
 
       font-size: 1.25rem;
-
-      li {
-        cursor: pointer;
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
     }
   }
 }
 //thin screen
-@media screen and (max-width: 43.9em) {
+@media screen and (max-width: 43.99em) {
   .nav-bar {
-    #hamburger-menu-button {
-      position: absolute;
-      top: 10px;
-      right: 10px;  
+    position: relative;
 
-      height: 50px;
-      width: 50px;
+    $exit-enter-button-size: 45px;
+    $exit-enter-button-offset: 10px;
+
+    #menu-button {
+      position: absolute;
+      top: $exit-enter-button-offset;
+      right: $exit-enter-button-offset;  
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height:  $exit-enter-button-size;
+      width:  $exit-enter-button-size;
 
       border-style: none;
       $border-radius: 25%;
@@ -74,31 +124,19 @@ $offset: min(4.5vw, 42px);
 
       background-color: rgba(0, 0, 0, 0);
 
-      z-index: 20;
+      z-index: 100;
 
-      #hamburger-menu-icon {
-        height: 100%;
-        width: 100%;
+      cursor: pointer;
+
+      svg {
+        height: $exit-enter-button-size;
+        width: $exit-enter-button-size;
         border-radius: $border-radius;
-
-        cursor: pointer;
       }
     }
 
     .nav-bar-box {
       display: none;
-    }
-
-    #full-page-menu {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-
-      background-color: white;
-
-      z-index: 100;
     }
   }
 }
@@ -132,7 +170,7 @@ $offset: min(4.5vw, 42px);
 
       @media screen and ((min-width: $switch-wide-to-thin) and (min-height: $switch-tall-to-short)) {
         #profile-pic-cover-container {
-          $dimensions: min(30vh, 300px);
+          $dimensions: min(calc(30vh - 50px), 300px);
           height: $dimensions;
           width: $dimensions;
   

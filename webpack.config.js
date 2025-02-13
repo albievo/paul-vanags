@@ -8,7 +8,8 @@ const webpack = require('webpack');
 module.exports = {
   // Entry point for your application
   entry: {
-    home: './src/scripts/home.js', // Ensure this file exists
+    general: './src/scripts/general.js',
+    home: './src/scripts/home.js',
   },
 
   // Output configuration
@@ -24,7 +25,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/pages/home.html', // Ensure this file exists
       filename: 'index.html', // Output filename
-      chunks: ['home'], // Only include the 'home' entry chunk
+      chunks: ['general', 'home'], // Only include the 'home' entry chunk
     }),
 
     // Extract and save compiled CSS

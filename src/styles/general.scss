@@ -23,3 +23,17 @@ body, html {
 h1, h2, h3, h4, h5, h6 {
   @include constants.noto-serif();
 }
+
+a {
+  color: inherit;
+}
+
+.link-secondary {
+  text-decoration: none;
+
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
