@@ -4,55 +4,6 @@
 
 $offset: min(4.5vw, 42px);
 
-.nav-bar {
-  #full-page-menu-container {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    background-color: rgba(0, 0, 0, 0.5);
-
-    z-index: 75;
-
-    #full-page-menu {
-      display: flex;
-      align-items: center;
-      
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: max(25vw, 40px);
-
-      background-color: white;
-  
-      #full-page-menu-contents {
-        display: flex;
-        flex-direction: column;
-
-
-        list-style: none;
-  
-        width: 100%;
-
-        font-size: 1.2rem;
-
-        li {
-          padding: 1.5rem 0 1.5rem 50px;
-
-          cursor: pointer;
-
-          &:hover {
-            background-color: rgb(200, 200, 200);
-          }
-        }
-      }
-    }
-  }
-}
-
 // nav bar stuff
 //wide screen
 @media screen and (min-width: 44em) {
@@ -104,7 +55,7 @@ $offset: min(4.5vw, 42px);
     position: relative;
 
     $exit-enter-button-size: 45px;
-    $exit-enter-button-offset: 10px;
+    $exit-enter-button-offset: 30px;
 
     #menu-button {
       position: absolute;
@@ -128,10 +79,86 @@ $offset: min(4.5vw, 42px);
 
       cursor: pointer;
 
-      svg {
+      #menu-icon {
         height: $exit-enter-button-size;
         width: $exit-enter-button-size;
         border-radius: $border-radius;
+
+        $animation-time: 200ms;
+  
+        /* Animation styles */
+        .top,
+        .bottom {
+          transform-origin: 50% 12px;
+          transition: transform $animation-time, stroke $animation-time;
+        }
+        .middle {
+          transition: opacity $animation-time;
+        }
+      }
+  
+      .open {
+        stroke: black;
+  
+        .top {
+          transform: rotate(45deg) translateY(6px);
+          stroke: black;
+        }
+        .middle {
+          opacity: 0;
+          stroke: black;
+        }
+        .bottom {
+          transform: rotate(-45deg) translateY(-6px);
+          stroke: black;
+        }
+      }
+    }
+
+    #full-page-menu-container {
+      position: fixed;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+  
+      background-color: rgba(0, 0, 0, 0.5);
+  
+      z-index: 75;
+  
+      #full-page-menu {
+        display: flex;
+        align-items: center;
+        
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: max(35vw, 40px);
+  
+        background-color: white;
+    
+        #full-page-menu-contents {
+          display: flex;
+          flex-direction: column;
+  
+  
+          list-style: none;
+    
+          width: 100%;
+  
+          font-size: 1.2rem;
+  
+          li {
+            padding: 1.5rem 0 1.5rem 50px;
+  
+            cursor: pointer;
+  
+            &:hover {
+              background-color: rgb(200, 200, 200);
+            }
+          }
+        }
       }
     }
 

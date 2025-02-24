@@ -37,33 +37,21 @@ function addHamburgerListener() {
   let menuDisplayed = false;
 
   $('#menu-button').on('click', () => {
-    if (!menuDisplayed) {
-      openSideBar();
-      menuDisplayed = true;
-    } else {
-      closeSideBar();
-      menuDisplayed = false;
-    }
+    toggleSideBar();
   })
 
   $('#full-page-menu-container').on('click', () => {
-    closeSideBar();
-    menuDisplayed = false;
+    toggleSideBar();
   })
 }
 
-function openSideBar() {
-  $('#full-page-menu-container').attr('hidden', false);
-  $('#menu-button').html(
-    '<svg id="close-icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none"><path d="M6 6L18 18" stroke="#000000" stroke-width="2" stroke-linecap="round"/><path d="M6 18L18 6" stroke="#000000" stroke-width="2" stroke-linecap="round"/></svg>'
-  )
-}
+function toggleSideBar() {
+  const menuContainer = document.getElementById('full-page-menu-container');
+  const menuButton = document.getElementById('menu-icon');
 
-function closeSideBar() {
-  $('#full-page-menu-container').attr('hidden', true);
-  $('#menu-button').html(
-    '<svg id="hamburger-menu-icon" width="800px" height="800px" viewBox="0 0 24 24" fill="none"><path d="M4 18L20 18" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/><path d="M4 12L20 12" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/><path d="M4 6L20 6" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/></svg>'
-  )
+  menuContainer.hidden = !menuContainer.hidden;
+  menuButton.classList.toggle('open');
+  menuButton.classList.toggle('closed');
 }
 
 loadCoverPhoto();
