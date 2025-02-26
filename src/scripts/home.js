@@ -49,7 +49,9 @@ function toggleSideBar() {
   const menuContainer = document.getElementById('full-page-menu-container');
   const menuButton = document.getElementById('menu-icon');
 
-  menuContainer.hidden = !menuContainer.hidden;
+  menuContainer.classList.toggle('closed-page-container');
+  menuContainer.classList.toggle('open-page-container');
+
   menuButton.classList.toggle('open');
   menuButton.classList.toggle('closed');
 }
