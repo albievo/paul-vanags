@@ -10,7 +10,8 @@ module.exports = {
   entry: {
     general: './src/scripts/general.js',
     home: './src/scripts/home.js',
-    cv: './src/scripts/cv.js'
+    cv: './src/scripts/cv.js',
+    "research-interests": './src/scripts/research-interests.js'
   },
 
   // Output configuration
@@ -32,6 +33,11 @@ module.exports = {
       template: './src/pages/cv.html', // Ensure this file exists
       filename: 'cv.html', // Output filename
       chunks: ['general', 'cv'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/cv.html', // Ensure this file exists
+      filename: 'research-interests.html', // Output filename
+      chunks: ['general', 'research-interests'],
     }),
 
     // Extract and save compiled CSS

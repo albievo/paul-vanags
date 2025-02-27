@@ -18,3 +18,4 @@ footer.load();
 
 const navBar = new NavBar();
 navBar.load();
+console.log('general running');
