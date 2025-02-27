@@ -22,7 +22,7 @@ export class Footer {
       this._loadSocials();
       this._loadFooterImage();
     });
-    }
+  }
 
   _loadSocials() {
     for (let idx = 0; idx < this.socials.length; idx++) {

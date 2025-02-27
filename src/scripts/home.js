@@ -1,3 +1,5 @@
+import { NavBar } from './nav-bar';
+
 import '../styles/home.scss';
 
 function loadCoverPhoto() {
@@ -24,38 +26,8 @@ function loadProfilePics() {
   $('#profile-pic-body-container').append($profilePicBody);
 }
 
-function addListeners() {
-  addNavBarListeners();
-  addHamburgerListener();
-}
-
-function addNavBarListeners() {
-  console.log('implement nav bar listeners');
-}
-
-function addHamburgerListener() {
-  let menuDisplayed = false;
-
-  $('#menu-button').on('click', () => {
-    toggleSideBar();
-  })
-
-  $('#full-page-menu-container').on('click', () => {
-    toggleSideBar();
-  })
-}
-
-function toggleSideBar() {
-  const menuContainer = document.getElementById('full-page-menu-container');
-  const menuButton = document.getElementById('menu-icon');
-
-  menuContainer.classList.toggle('closed-page-container');
-  menuContainer.classList.toggle('open-page-container');
-
-  menuButton.classList.toggle('open');
-  menuButton.classList.toggle('closed');
-}
-
 loadCoverPhoto();
 loadProfilePics();
-addListeners();
+
+const navBar = new NavBar();
+navBar.load();
