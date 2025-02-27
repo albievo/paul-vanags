@@ -10,6 +10,7 @@ module.exports = {
   entry: {
     general: './src/scripts/general.js',
     home: './src/scripts/home.js',
+    cv: './src/scripts/cv.js'
   },
 
   // Output configuration
@@ -25,7 +26,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/pages/home.html', // Ensure this file exists
       filename: 'index.html', // Output filename
-      chunks: ['general', 'home'], // Only include the 'home' entry chunk
+      chunks: ['general', 'home'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/cv.html', // Ensure this file exists
+      filename: 'cv.html', // Output filename
+      chunks: ['general', 'cv'],
     }),
 
     // Extract and save compiled CSS

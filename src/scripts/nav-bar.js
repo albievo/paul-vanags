@@ -16,16 +16,29 @@ export class NavBar {
   }
   
   _addNavBarListeners() {
-    console.log('implement nav bar listeners');
+    $('.research-interests-link').on('click', () => {
+      window.location.href = 'research-interests.html'
+    });
+    $('.publications-link').on('click', () => {
+      window.location.href = 'publications.html'
+    });
+    $('.cv-link').on('click', () => {
+      window.location.href = 'cv.html'
+    });
+    $('.lets-talk-link').on('click', () => {
+      window.location.href = 'lets-talk.html'
+    })
   }
   
   _addHamburgerListener() { 
     $('#menu-button').on('click', () => {
       this._toggleSideBar();
     })
-  
-    $('#full-page-menu-container').on('click', () => {
-      this._toggleSideBar();
+    
+    $('#full-page-menu-container').on('click', (event) => {
+      if (!$(event.target).closest('#full-page-menu').length) {
+        this._toggleSideBar();
+      }
     })
   }
   

@@ -1,5 +1,3 @@
-import { NavBar } from './nav-bar';
-
 import '../styles/home.scss';
 
 function loadCoverPhoto() {
@@ -28,6 +26,3 @@ function loadProfilePics() {
 
 loadCoverPhoto();
 loadProfilePics();
-
-const navBar = new NavBar();
-navBar.load();
