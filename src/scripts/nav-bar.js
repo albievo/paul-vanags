@@ -1,3 +1,5 @@
+import { getPageName } from "./utils/getPageName";
+
 export class NavBar {
 
   async load() {
@@ -7,6 +9,7 @@ export class NavBar {
 
     $('.nav-bar').load('nav-bar.html', () => {
       this._addListeners();
+      this._highlightCurrentPage();
     });
   }
 
@@ -14,20 +17,32 @@ export class NavBar {
     this._addNavBarListeners();
     this._addHamburgerListener();
   }
+
+  _highlightCurrentPage() {
+    const pageName = getPageName() || 'home';
+    this._highlightPage(pageName);
+  }
+
+  _highlightPage(pageName) {
+    $(`.${pageName}-link`).css('font-weight', 700);
+  }
   
   _addNavBarListeners() {
+    $('.home-link').on('click', () => {
+      window.location.assign('/');
+    });
     $('.research-interests-link').on('click', () => {
-      window.location.href = 'research-interests.html'
+      window.location.assign('research-interests.html');
     });
     $('.publications-link').on('click', () => {
-      window.location.href = 'publications.html'
+      window.location.assign('publications.html');
     });
     $('.cv-link').on('click', () => {
-      window.location.href = 'cv.html'
+      window.location.assign('cv.html');
     });
     $('.lets-talk-link').on('click', () => {
-      window.location.href = 'lets-talk.html'
-    })
+      window.location.assign('lets-talk.html');
+    });
   }
   
   _addHamburgerListener() { 
