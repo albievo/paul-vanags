@@ -11,7 +11,9 @@ module.exports = {
     general: './src/scripts/general.js',
     home: './src/scripts/home.js',
     cv: './src/scripts/cv.js',
-    "research-interests": './src/scripts/research-interests.js'
+    "research-interests": './src/scripts/research-interests.js',
+    publications: './src/scripts/publications.js',
+    "lets-talk": './src/scripts/lets-talk.js'
   },
 
   // Output configuration
@@ -35,9 +37,19 @@ module.exports = {
       chunks: ['general', 'cv'],
     }),
     new HtmlWebpackPlugin({
-      template: './src/pages/cv.html', // Ensure this file exists
+      template: './src/pages/research-interests.html', // Ensure this file exists
       filename: 'research-interests.html', // Output filename
       chunks: ['general', 'research-interests'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/publications.html', // Ensure this file exists
+      filename: 'publications.html', // Output filename
+      chunks: ['general', 'publications'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/lets-talk.html', // Ensure this file exists
+      filename: 'lets-talk.html', // Output filename
+      chunks: ['general', 'lets-talk'],
     }),
 
     // Extract and save compiled CSS
