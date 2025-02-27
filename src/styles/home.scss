@@ -1,91 +1,7 @@
 @use './general.scss';
 @use './partials/constants';
 
-#content {
-  $switch-wide-to-thin: 650px;
-  $switch-tall-to-short: 650px;
-
-  #cover-photo-container {
-    position: relative;
-    height: max(67vw);
-  
-    $max-height: 60vh;
-    $min-height: 20rem;
-  
-    max-height: $max-height;
-    min-height: $min-height;
-
-    #cover-photo-contents {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-
-
-      @media screen and ((min-width: $switch-wide-to-thin) and (min-height: $switch-tall-to-short)) {
-        #profile-pic-cover-container {
-          $dimensions: min(calc(30vh - 50px), 300px);
-          height: $dimensions;
-          width: $dimensions;
-  
-          overflow: hidden;
-  
-          border-radius: 50%;
-          border-style: solid;
-          border-color: white;
-          border-width: 5px;
-    
-          #profile-pic-cover {
-            height: 100%;
-            width: 100%;
-  
-            transform: scale(2);
-            transform-origin: 62% 5%;
-  
-            object-fit: cover;
-          }
-        }
-      }
-      @media screen and ((max-width: calc($switch-wide-to-thin - 1px)) or (max-height: calc($switch-wide-to-thin - 1px))) {
-        #profile-pic-cover-container {
-          display: none;
-        }
-      }
-
-      #cover-photo-name-container {
-        font-size: 2.75rem;
-        font-weight: 700;
-        color: white;
-        text-align: center;
-  
-        padding: 0 15px 0 15px;
-  
-        .description {
-          font-size: 1.25rem;
-        }
-      }
-    }
-  
-    #cover-photo {
-      display: block;
-  
-      width: 100%;
-      height: 100%;
-  
-      max-height: $max-height;
-      min-height: $min-height;
-  
-      object-fit: cover;
-      object-position: 50% 100%;
-    }
-  }
-  
+#content {  
   #body-text-section {
     display: flex;
 
@@ -97,7 +13,7 @@
     margin-bottom: min(5vw, 40px);
 
     //big enough on both
-    @media screen and ((min-width: $switch-wide-to-thin) and (min-height: $switch-tall-to-short)) {
+    @media screen and ((min-width: constants.$switch-wide-to-thin) and (min-height: constants.$switch-tall-to-short)) {
       flex-direction: row;
       justify-content: center;
     
@@ -111,7 +27,7 @@
     }
     
     // too short or too thin
-    @media screen and ((max-width: calc($switch-wide-to-thin - 1px)) or (max-height: calc($switch-wide-to-thin - 1px))) {
+    @media screen and ((max-width: calc(constants.$switch-wide-to-thin - 1px)) or (max-height: calc(constants.$switch-wide-to-thin - 1px))) {
       #profile-pic-body-container {
         display: flex;
         justify-content: center;
@@ -128,7 +44,7 @@
     }
 
     //too short but not too thin
-    @media screen and ((not (max-width: calc($switch-wide-to-thin - 1px))) and (max-height: calc($switch-wide-to-thin - 1px))) {
+    @media screen and ((not (max-width: calc(constants.$switch-wide-to-thin - 1px))) and (max-height: calc(constants.$switch-wide-to-thin - 1px))) {
       flex-direction: row;
       justify-content: center;
       column-gap: 50px;
@@ -142,7 +58,7 @@
     }
 
     // too thin
-    @media screen and (max-width: calc($switch-wide-to-thin - 1px)) {
+    @media screen and (max-width: calc(constants.$switch-wide-to-thin - 1px)) {
       flex-direction: column;
 
       #body-text {
@@ -157,12 +73,12 @@
     }
 
     #body-text {
-      font-size: 1.25rem;
+      font-size: 1.2rem;
 
       p {    
         max-width: 50rem;
 
-        margin-top: 0.4rem;
+        margin-top: 1rem;
       }
 
       h3 {

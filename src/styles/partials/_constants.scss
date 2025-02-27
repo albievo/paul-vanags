@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');/*colors*/
+
+/*colors*/
 $grey-back: rgb(101, 101, 101);
 
 $bluesky-bg: rgb(17, 133, 254);
 $linkedin-bg: rgb(0, 126, 187);
+
+/*media query widths*/
+$switch-wide-to-thin: 650px;
+$switch-tall-to-short: 650px;
 
 /*fonts*/
 @mixin open-sans {

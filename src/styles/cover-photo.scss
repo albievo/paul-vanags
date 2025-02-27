@@ -1,0 +1,85 @@
+@use './partials/constants';
+
+#cover-photo-container {
+  position: relative;
+  height: max(67vw);
+
+  $max-height: 60vh;
+  $min-height: 20rem;
+
+  max-height: $max-height;
+  min-height: $min-height;
+
+  #cover-photo-contents {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    @media screen and ((min-width: constants.$switch-wide-to-thin) and (min-height: constants.$switch-tall-to-short)) {
+      #profile-pic-cover-container {
+        $dimensions: min(calc(30vh - 50px), 250px);
+        height: $dimensions;
+        width: $dimensions;
+
+        overflow: hidden;
+
+        border-radius: 50%;
+        border-style: solid;
+        border-color: white;
+        border-width: 5px;
+  
+        #profile-pic-cover {
+          height: 100%;
+          width: 100%;
+
+          transform: scale(2);
+          transform-origin: 62% 5%;
+
+          object-fit: cover;
+        }
+      }
+    }
+    @media screen and ((max-width: calc(constants.$switch-wide-to-thin - 1px)) or (max-height: calc(constants.$switch-wide-to-thin - 1px))) {
+      #profile-pic-cover-container {
+        display: none;
+      }
+    }
+
+    #cover-photo-name-container {
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: white;
+      text-align: center;
+
+      padding: 0 15px 0 15px;
+
+      .description {
+        font-size: 1.25rem;
+      }
+    }
+  }
+
+  #cover-photo {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    max-height: $max-height;
+    min-height: $min-height;
+
+    object-fit: cover;
+  }
+
+  .oxford-cover-photo {
+    object-position: 50% 100%;
+  }
+}

@@ -77,7 +77,8 @@ module.exports = {
     new CopyWebpackPlugin({
       patterns:[
         {from: 'src/partials/footer.html', to: 'footer.html'},
-        {from: 'src/partials/nav-bar.html', to: 'nav-bar.html'}
+        {from: 'src/partials/nav-bar.html', to: 'nav-bar.html'},
+        {from: 'src/partials/cover-photo.html', to: 'cover-photo.html'}
       ],
     })
   ],

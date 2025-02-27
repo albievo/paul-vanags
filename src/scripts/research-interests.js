@@ -1,3 +1,6 @@
+import { CoverPhoto } from './cover-photo';
+
 import '../styles/research-interests.scss';
 
-console.log('research interests yay');
+const coverPhoto = new CoverPhoto('Research Interests', '', 'assets/images/books-cover-photo.jpg', 'books-cover-photo');
+coverPhoto.load();

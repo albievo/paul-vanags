@@ -3,6 +3,7 @@ import { NavBar } from "./nav-bar";
 
 import '../styles/footer.scss';
 import '../styles/nav-bar.scss';
+import '../styles/cover-photo.scss';
 
 const footer = new Footer([
   {
