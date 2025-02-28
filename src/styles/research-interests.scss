@@ -1,2 +1,89 @@
 @use './general.scss';
 @use './partials/constants';
+
+#content {  
+  #body-text-section {
+    display: flex;
+
+    width: 100%;
+
+    $item-margin: 5vw;
+
+    margin-top: min(5vw, 40px);
+    margin-bottom: min(5vw, 40px);
+
+    //big enough on both
+    @media screen and ((min-width: constants.$switch-wide-to-thin) and (min-height: constants.$switch-tall-to-short)) {
+      flex-direction: row;
+      justify-content: center;
+    
+      #profile-pic-body-container {
+        display: none;
+      }
+  
+      #body-text {
+        margin: 0 $item-margin 0 $item-margin;
+      }
+    }
+    
+    // too short or too thin
+    @media screen and ((max-width: calc(constants.$switch-wide-to-thin - 1px)) or (max-height: calc(constants.$switch-wide-to-thin - 1px))) {
+      #profile-pic-body-container {
+        display: flex;
+        justify-content: center;
+
+        margin-top: 40px;
+  
+        #profile-pic-body {        
+          height: 230px;
+          width: 175px;
+          object-fit: cover;
+          object-position: 55% 50%;
+        }
+      }
+    }
+
+    //too short but not too thin
+    @media screen and ((not (max-width: calc(constants.$switch-wide-to-thin - 1px))) and (max-height: calc(constants.$switch-wide-to-thin - 1px))) {
+      flex-direction: row;
+      justify-content: center;
+      column-gap: 50px;
+
+      #profile-pic-body-container {
+        margin-left: $item-margin;
+      }
+      #body-text {
+        margin-right: $item-margin;
+      }
+    }
+
+    // too thin
+    @media screen and (max-width: calc(constants.$switch-wide-to-thin - 1px)) {
+      flex-direction: column;
+
+      #body-text {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        $margin-left-right: 30px;
+        $margin-top-bottom: 20px;
+        margin: $margin-top-bottom $margin-left-right $margin-top-bottom $margin-left-right;
+      }
+    }
+
+    #body-text {
+      font-size: 1.2rem;
+
+      p {    
+        max-width: 50rem;
+
+        margin-top: 1rem;
+      }
+
+      h3 {
+        margin: 3rem 0 1rem 0;
+      }
+    }
+  }
+}

@@ -37,3 +37,13 @@ a {
     text-decoration: underline;
   }
 }
+
+.link-primary {
+  text-decoration: underline;
+
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
