@@ -14,7 +14,7 @@ function loadBodyProfilePic() {
 const navBar = new NavBar('67vw', '50vh');
 navBar.load();
 
-const coverPhoto = new CoverPhoto('Paul Vanags', 'birthday boy', 'assets/images/cover-photo.jpg', 'oxford-cover-photo', true, '67vw', '50vh', '20rem');
+const coverPhoto = new CoverPhoto('Paul Vanags', 'birthday boy', 'assets/images/cover-photo.jpg', 'oxford-cover-photo', true, '67vw', '50vh', '10rem');
 coverPhoto.load();
 
 loadBodyProfilePic();

@@ -22,6 +22,8 @@ $nav-bar-resize-width: 50em;
 
     z-index: 10;
 
+    font-size: $nav-bar-font-size;
+
     &.sticky {
       position: fixed;
       top: 10px;
@@ -50,8 +52,6 @@ $nav-bar-resize-width: 50em;
       background-color: white;
 
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  
-      font-size: $nav-bar-font-size;
     }
   }
 }

@@ -88,8 +88,6 @@ export class NavBar {
     const navBarStickyOffset = 10;
 
     $(window).on('scroll', () => {
-      console.log(window.scrollY, navBarOffset - navBarStickyOffset)
-
       if (window.scrollY > navBarOffset - navBarStickyOffset) {
         navBar.classList.add("sticky");
         $(navBar).css('top', `${navBarStickyOffset}px`);
@@ -116,9 +114,12 @@ export class NavBar {
     }
   
     if (!this.topStyle) {
-      const computedStyles = getComputedStyle(document.documentElement); // Get styles from <html> (root)
-      const topBottomPadding = computedStyles.getPropertyValue('--nav-bar-top-bottom-padding') || '0px';
-      const fontSize = computedStyles.getPropertyValue('--nav-bar-font-size') || '16px';
+      const computedStylesNavBar = getComputedStyle(document.querySelector('.nav-bar'));
+      const computedStylesNavBarBox = getComputedStyle(document.querySelector('.nav-bar-box'))
+      const topBottomPadding = computedStylesNavBarBox.paddingTop || '0px';
+      const fontSize = computedStylesNavBar.fontSize || '16px';
+      
+      console.log(fontSize, topBottomPadding);
   
       this.topStyle = `min(calc(${this.coverPhotoHeight} - ${topBottomPadding} - ${fontSize} / 2), calc(${this.coverPhotoMaxHeight} - ${topBottomPadding} - ${fontSize} / 2))`;
     }
