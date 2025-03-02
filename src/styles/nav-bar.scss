@@ -1,3 +1,5 @@
+@use './partials/constants';
+
 $nav-bar-top-bottom-padding: 10px;
 $nav-bar-right-left-padding: 25px;
 $nav-bar-font-size: 1.25rem;
@@ -171,9 +173,11 @@ $nav-bar-resize-width: 50em;
   
               cursor: pointer;
               text-wrap: nowrap;
+
+              transition: background-color 100ms;
     
               &:hover {
-                background-color: rgb(200, 200, 200);
+                background-color: constants.$grey-hover;
               }
             }
           }
