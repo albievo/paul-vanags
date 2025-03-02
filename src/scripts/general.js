@@ -1,5 +1,4 @@
 import { Footer } from "./footer";
-import { NavBar } from "./nav-bar";
 
 import '../styles/footer.scss';
 import '../styles/nav-bar.scss';
@@ -16,6 +15,3 @@ const footer = new Footer([
   }
 ]);
 footer.load();
-
-const navBar = new NavBar();
-navBar.load();

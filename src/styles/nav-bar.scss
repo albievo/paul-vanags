@@ -1,3 +1,15 @@
+$nav-bar-top-bottom-padding: 10px;
+$nav-bar-right-left-padding: 25px;
+$nav-bar-font-size: 1.25rem;
+
+$nav-bar-resize-width: 50em;
+
+:root {
+  --nav-bar-top-bottom-padding: #{$nav-bar-top-bottom-padding};
+  --nav-bar-font-size: #{$nav-bar-font-size};
+  --nav-bar-resize-width: #{$nav-bar-resize-width};
+}
+
 //wide screen
 @media screen and (min-width: 50em) {
   .nav-bar {
@@ -8,6 +20,13 @@
     align-items: center;
     width: 100%;
 
+    z-index: 10;
+
+    &.sticky {
+      position: fixed;
+      top: 10px;
+    }
+
     #menu-button {
       display: none;
     }
@@ -17,17 +36,12 @@
     }
   
     .nav-bar-box {
-      position: fixed;
-      top: 1.5vh;
-
       display: flex;
       align-items: center;
       justify-content: center;
       column-gap: 30px; 
 
-      $top-bottom-padding: 10px;
-      $right-left-padding: 25px;
-      padding: $top-bottom-padding $right-left-padding;
+      padding: $nav-bar-top-bottom-padding $nav-bar-right-left-padding;
 
       list-style: none; //remove bullet points
   
@@ -37,9 +51,7 @@
 
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   
-      z-index: 10;
-
-      font-size: 1.25rem;
+      font-size: $nav-bar-font-size;
     }
   }
 }

@@ -4,6 +4,7 @@ export class CoverPhoto {
   description;
   coverPhotoFilePath;
   coverPhotoName;
+  profilePic;
 
   /**
    * 
@@ -11,12 +12,17 @@ export class CoverPhoto {
    * @param {string} description         description of the page
    * @param {string} coverPhotoFilePath  file path to the cover photo
    * @param {string} coverPhotoName      name of cover photo
+   * @param {boolean} profilePic         whether to add the pfp
    */
-  constructor(title, description, coverPhotoFilePath, coverPhotoName) {
+  constructor(title, description, coverPhotoFilePath, coverPhotoName, profilePic, height, maxHeight, minHeight) {
     this.title = title;
     this.description = description;
     this.coverPhotoFilePath = coverPhotoFilePath;
     this.coverPhotoName = coverPhotoName;
+    this.profilePic = profilePic;
+    this.height = height;
+    this.maxHeight = maxHeight;
+    this.minHeight = minHeight;
   }
 
   load() {
@@ -26,8 +32,11 @@ export class CoverPhoto {
 
     $('#cover-photo-container').load('cover-photo.html', () => {
       this._loadPhoto();
-      this._loadProfilePic();
+      if (this.profilePic) {
+        this._loadProfilePic();
+      }
       this._addText();
+      this._setHeight();
     });
   }
 
@@ -42,15 +51,30 @@ export class CoverPhoto {
   }
 
   _loadProfilePic() {
+    const $profilePicCoverContainer = document.createElement('div');
+    $profilePicCoverContainer.id = 'profile-pic-cover-container';
+
     const $profilePic = document.createElement('img');
     $profilePic.src = 'assets/images/profile-pic.jpg';
     $profilePic.id = 'profile-pic-cover';
 
+    $('#cover-photo-contents').prepend($profilePicCoverContainer)
     $('#profile-pic-cover-container').append($profilePic);
   }
 
   _addText() {
     $('.name').html(this.title);
     $('.description').html(this.description);
+  }
+
+  _setHeight() {
+    const $coverPhotoContainer = $('#cover-photo-container');
+    $coverPhotoContainer.css('height', this.height);
+    $coverPhotoContainer.css('max-height', this.maxHeight);
+    $coverPhotoContainer.css('min-height', this.minHeight);
+
+    const $coverPhoto = $('#cover-photo');
+    $coverPhoto.css('max-height', this.maxHeight);
+    $coverPhoto.css('min-height', this.minHeight);
   }
 }
