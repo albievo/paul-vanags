@@ -7,6 +7,7 @@ export class NavBar {
   /**
    * 
    * @param {string} coverPhotoHeight the height of the cover photo on the page in scss units
+   * 
    */
   constructor(coverPhotoHeight, coverPhotoMaxHeight) {
     this.coverPhotoHeight = coverPhotoHeight;
