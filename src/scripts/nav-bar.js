@@ -119,9 +119,7 @@ export class NavBar {
       const computedStylesNavBarBox = getComputedStyle(document.querySelector('.nav-bar-box'))
       const topBottomPadding = computedStylesNavBarBox.paddingTop || '0px';
       const fontSize = computedStylesNavBar.fontSize || '16px';
-      
-      console.log(fontSize, topBottomPadding);
-  
+        
       this.topStyle = `min(calc(${this.coverPhotoHeight} - ${topBottomPadding} - ${fontSize} / 2), calc(${this.coverPhotoMaxHeight} - ${topBottomPadding} - ${fontSize} / 2))`;
     }
   

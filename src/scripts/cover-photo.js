@@ -76,7 +76,5 @@ export class CoverPhoto {
     const $coverPhoto = $('#cover-photo');
     $coverPhoto.css('max-height', this.maxHeight);
     $coverPhoto.css('min-height', this.minHeight);
-
-    console.log(this.maxHeight)
   }
 }

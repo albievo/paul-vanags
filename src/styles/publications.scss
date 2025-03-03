@@ -65,9 +65,34 @@
             font-size: 1.2rem;
             text-align: left;
 
-            background-color: rgb(240, 240, 240);
+            background-color: rgb(246, 246, 246);
 
             transition: background-color 100ms;
+          }
+
+          .publication-content-summary {
+
+            $indent: 10px;
+            margin: 5px $indent 10px $indent;
+
+            .publication-content-summary-title {
+              margin-bottom: 5px;
+
+              @include constants.open-sans();
+              font-weight: 700;
+            }
+          }
+        }
+
+        .collapsed {
+         .publication-content-summary {
+            display: none;
+          } 
+        }
+
+        .expanded {
+          &::before {
+            background-image: url("../assets/icons/triangle-down.png");
           }
         }
       }
