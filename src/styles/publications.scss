@@ -72,7 +72,7 @@
 
           .publication-content-summary {
 
-            $indent: 10px;
+            $indent: 1vw;
             margin: 5px $indent 10px $indent;
 
             .publication-content-summary-title {
@@ -80,6 +80,10 @@
 
               @include constants.open-sans();
               font-weight: 700;
+            }
+
+            p {
+              text-align: justify;
             }
           }
         }
