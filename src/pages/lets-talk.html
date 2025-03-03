@@ -9,6 +9,45 @@
 <body>
   <div id="page-container">
     <div id="content">
+      <div id="contact-form-wrapper">
+
+        <p id="contact-form-description">
+          If you&apos;d like to get in touch, use the contact form below, alternatively find me on <a href="http://@paulvanags.bsky.social" target="_blank" class="link-primary">@paulvanags.bsky.social</a>.
+        </p>
+
+        <form id="contact-form">
+
+          <div class="form-field">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-input" id="name" name="name" required />
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-input" id="email" name="email" required />
+            <p class="form-description">
+              This will help me respond to your query via an email.
+            </p>
+          </div>
+
+          <div class="form-field">
+            <label class="form-label" for="message">Message</label>
+            <textarea
+              class="form-textarea"
+              id="message"
+              name="message"
+              required
+            ></textarea>
+            <p class="form-description">What would you like to discuss?</p>
+          </div>
+
+          <div class="form-button-group">
+            <button class="form-submit-btn" type="submit">Send</button>
+          </div>
+
+        </form>
+        <p id="status-message" style="display: none;"></p>
+      </div>
     </div>
   </div>
 </body>

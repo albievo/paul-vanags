@@ -11,3 +11,31 @@ navBar.load();
 
 const coverPhoto = new CoverPhoto('Paul Vanags', 'Let\'s Talk!', 'assets/images/books-cover-photo.jpg', 'books-cover-photo', false, topPartHeight, topPartMaxHeight, '10rem');
 coverPhoto.load();
+
+document.getElementById("contact-form").addEventListener("submit", async function (event) {
+  console.log('form submitted');
+  
+  event.preventDefault(); // Prevent default form submission
+
+  const form = event.target;
+  const formData = new FormData(form);
+
+  const response = await fetch("https://formspree.io/f/mldgqvge", {
+      method: "POST",
+      body: formData,
+      headers: { "Accept": "application/json" }
+  });
+
+  const statusMessage = document.getElementById("status-message");
+
+  if (response.ok) {
+      statusMessage.textContent = "Message sent successfully!";
+      statusMessage.style.color = "green";
+      form.reset();
+  } else {
+      statusMessage.textContent = "Oops! Something went wrong.";
+      statusMessage.style.color = "red";
+  }
+
+  statusMessage.style.display = "block";
+});
