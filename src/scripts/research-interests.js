@@ -9,5 +9,5 @@ const topPartMaxHeight = '35vh'
 const navBar = new NavBar(topPartHeight, topPartMaxHeight);
 navBar.load();
 
-const coverPhoto = new CoverPhoto('Paul Vanags', 'Research Interests', 'assets/images/books-cover-photo.jpg', 'books-cover-photo', false, topPartHeight, topPartMaxHeight, '10rem');
+const coverPhoto = new CoverPhoto('Paul Vanags', 'Research Interests', 'assets/images/mri-scans-cover-photo.jpg', 'mri-scans-cover-photo', false, topPartHeight, topPartMaxHeight, '10rem');
 coverPhoto.load();
