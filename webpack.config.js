@@ -13,7 +13,8 @@ module.exports = {
     cv: './src/scripts/cv.js',
     "research-interests": './src/scripts/research-interests.js',
     publications: './src/scripts/publications.js',
-    "lets-talk": './src/scripts/lets-talk.js'
+    "lets-talk": './src/scripts/lets-talk.js',
+    "philosophy-of-prosociality": './src/scripts/philosophy-of-prosociality.js'
   },
 
   // Output configuration
@@ -50,6 +51,11 @@ module.exports = {
       template: './src/pages/lets-talk.html', // Ensure this file exists
       filename: 'lets-talk.html', // Output filename
       chunks: ['general', 'lets-talk'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/pages/philosophy-of-prosociality.html', // Ensure this file exists
+      filename: 'philosophy-of-prosociality.html', // Output filename
+      chunks: ['general', 'philosophy-of-prosociality'],
     }),
 
     // Extract and save compiled CSS
