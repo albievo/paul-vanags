@@ -9,7 +9,7 @@ const topPartMaxHeight = '35vh'
 const navBar = new NavBar(topPartHeight, topPartMaxHeight);
 navBar.load();
 
-const coverPhoto = new CoverPhoto('Paul Vanags', 'Let\'s Talk!', 'assets/images/books-cover-photo.jpg', 'books-cover-photo', false, topPartHeight, topPartMaxHeight, '10rem');
+const coverPhoto = new CoverPhoto('Paul Vanags', 'Let\'s Talk!', 'assets/images/talking-cover-photo.jpg', 'talking-cover-photo', false, topPartHeight, topPartMaxHeight, '10rem');
 coverPhoto.load();
 
 document.getElementById("contact-form").addEventListener("submit", async function (event) {

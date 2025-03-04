@@ -89,12 +89,14 @@ export class NavBar {
     const navBarStickyOffset = 10;
 
     $(window).on('scroll', () => {
-      if (window.scrollY > navBarOffset - navBarStickyOffset) {
-        navBar.classList.add("sticky");
-        $(navBar).css('top', `${navBarStickyOffset}px`);
-      } else {
-        navBar.classList.remove("sticky");
-        $(navBar).css('top', this._calcTopStyle());
+      if (this.currentTopStyle !== '0px') {
+        if (window.scrollY > navBarOffset - navBarStickyOffset) {
+          navBar.classList.add("sticky");
+          $(navBar).css('top', `${navBarStickyOffset}px`);
+        } else {
+          navBar.classList.remove("sticky");
+          $(navBar).css('top', this._calcTopStyle());
+        }
       }
     })
   }

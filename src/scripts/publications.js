@@ -27,7 +27,7 @@ const topPartMaxHeight = '35vh';
 const navBar = new NavBar(topPartHeight, topPartMaxHeight);
 navBar.load();
 
-const coverPhoto = new CoverPhoto('Paul Vanags', 'Publications', 'assets/images/books-cover-photo.jpg', 'books-cover-photo', false, topPartHeight, topPartMaxHeight, '10rem');
+const coverPhoto = new CoverPhoto('Paul Vanags', 'Publications', 'assets/images/graphing-cover-photo.jpg', 'graphing-cover-photo', false, topPartHeight, topPartMaxHeight, '10rem');
 coverPhoto.load();
 
 addBodyGridListeners();

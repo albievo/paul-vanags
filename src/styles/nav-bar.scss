@@ -63,7 +63,7 @@ $nav-bar-resize-width: 50em;
     position: relative;
 
     $exit-enter-button-size: 45px;
-    $exit-enter-button-offset: 2vw;
+    $exit-enter-button-offset: max(2vw, 20px);
 
     #menu-button {
       position: absolute;
