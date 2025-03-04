@@ -27,7 +27,6 @@ export class NavBar {
   }
 
   _addListeners() {
-    this._addNavBarListeners();
     this._addHamburgerListener();
     this._addScrollListeners();
     this._addResizeListeners();
@@ -40,24 +39,6 @@ export class NavBar {
 
   _highlightPage(pageName) {
     $(`.${pageName}-link`).css('font-weight', 700);
-  }
-  
-  _addNavBarListeners() {
-    $('.home-link').on('click', () => {
-      window.location.assign('/');
-    });
-    $('.research-interests-link').on('click', () => {
-      window.location.assign('research-interests.html');
-    });
-    $('.publications-link').on('click', () => {
-      window.location.assign('publications.html');
-    });
-    $('.cv-link').on('click', () => {
-      window.location.assign('cv.html');
-    });
-    $('.lets-talk-link').on('click', () => {
-      window.location.assign('lets-talk.html');
-    });
   }
   
   _addHamburgerListener() { 
