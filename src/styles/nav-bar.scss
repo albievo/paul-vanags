@@ -153,7 +153,6 @@ $nav-bar-resize-width: 50em;
           display: flex;
           flex-direction: column;
   
-  
           list-style: none;
     
           width: 100%;
@@ -170,9 +169,11 @@ $nav-bar-resize-width: 50em;
               padding: 1.5rem 0 1.5rem 50px;
 
               width: 100%;
+
+              text-wrap: nowrap;
+              text-decoration: none;
   
               cursor: pointer;
-              text-wrap: nowrap;
 
               transition: background-color 100ms;
     
